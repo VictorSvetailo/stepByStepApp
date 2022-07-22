@@ -1,87 +1,34 @@
 import React from 'react';
 import './App.css';
+import Accordion from "./components/Accordion/Accordion";
+import {Rating} from "./Rating/Rating";
 
 
 function App() {
     console.log('App rendering')
     return (
         <div>
-            <AppTitle/>
-            <Rating/>
-            <Accordion/>
-            <Rating/>
-            <AppTitle/>
+            <PageTitle title={'This is APP component'}/>
+            <PageTitle title={'My friends'}/>
+            <Accordion title={'Меню номер 1'}/>
+            <Accordion title={'Меню номер 2'}/>
+            <Rating title={'Article #0'} value={0}/>
+            <Rating title={'Article #1'} value={1}/>
+            <Rating title={'Article #2'} value={2}/>
+            <Rating title={'Article #3'} value={3}/>
+            <Rating title={'Article #4'} value={4}/>
+            <Rating title={'Article #5'} value={5}/>
+            <PageTitle title={'How are you?'}/>
         </div>
-    );
+    ); 
 }
 
-
-// export function Hello() {
-//     alert('Hello Victor Svetailo')
-// }
-
-// Hello()
-
-
-function AppTitle() {
-    console.log('AppTitle rendering')
+function PageTitle(props: any) {
+    console.log('PageTitle rendering')
+    debugger
     return (
         <div>
-            <h1>This is APP component</h1>
-        </div>
-    )
-}
-
-function Rating() {
-    console.log('Rating rendering')
-    return (
-        <div>
-            <Star/><Star/><Star/><Star/><Star/>
-        </div>
-    )
-}
-
-
-function Star() {
-    console.log('Star rendering')
-    return (
-        <div>
-            <div>star</div>
-        </div>
-    )
-}
-
-
-// Rating()
-
-function Accordion() {
-    console.log('Accordion rendering')
-    return (
-        <div>
-            <AccordionTitle/>
-            <AccordionBody/>
-        </div>
-    )
-}
-
-function AccordionTitle() {
-    console.log('AccordionTitle rendering')
-    return (
-        <div>
-            <h3>Меню</h3>
-        </div>
-    )
-}
-
-function AccordionBody() {
-    console.log('AccordionBody rendering')
-    return (
-        <div>
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
+            <h1>{props.title}</h1>
         </div>
     )
 }
