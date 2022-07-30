@@ -1,0 +1,52 @@
+
+.block{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+.btn_on{
+    padding: 10px 30px;
+    background-color: green;
+    font-weight: 700;
+}
+
+.btn_on:hover{
+    background-color: darkgreen;
+}
+
+.btn_off{
+    padding: 10px 30px;
+    background-color: red;
+    font-weight: 700;
+}
+
+.btn_off:hover{
+    background-color: orangered;
+}
+
+.sensor_on{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: green;
+}
+
+.sensor_off{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.sensor_on:hover{
+    width: 22px;
+    height: 22px;
+    transition: 0.4s;
+}
+.sensor_off:hover{
+    width: 22px;
+    height: 22px;
+    transition: 0.4s;
+}

@@ -1,26 +1,59 @@
-import React from "react";
+import React from 'react';
 
-function Accordion(props: any) {
-    console.log('Accordion rendering')
-    return (
-        <div>
-            <AccordionTitle title={props.title}/>
-            <AccordionBody/>
-        </div>
-    )
+
+type AccordionPropsType = {
+    titleValue: string
+    collapsed: boolean
 }
 
-function AccordionTitle(props: any) {
-    console.log('AccordionTitle rendering')
+function Accordion(props: AccordionPropsType) {
+    // console.log('Accordion rendering')
+
     return (
         <div>
-            <h3>{props.title}</h3>
+            <AccordionTitle title={props.titleValue}/>
+            { !props.collapsed && <AccordionBody/>}
+        </div>
+    )
+
+}
+
+// function Accordion2(props: AccordionPropsType) {
+//
+//     console.log('Accordion rendering')
+//     if (props.collapsed) {
+//         return (
+//             <div>
+//                 <AccordionTitle title={props.titleValue}/>
+//             </div>
+//         )
+//     }else {
+//         return (
+//             <div>
+//                 <AccordionTitle title={props.titleValue}/>
+//                 <AccordionBody/>
+//             </div>
+//         )
+//     }
+//
+// }
+
+
+type AccordionTitlePropsType = {
+    title: string
+}
+
+function AccordionTitle(props: AccordionTitlePropsType) {
+    // console.log('AccordionTitle rendering')
+    return (
+        <div>
+            <h3>--- {props.title} ---</h3>
         </div>
     )
 }
 
 function AccordionBody() {
-    console.log('AccordionBody rendering')
+    // console.log('AccordionBody rendering')
     return (
         <div>
             <ul>
