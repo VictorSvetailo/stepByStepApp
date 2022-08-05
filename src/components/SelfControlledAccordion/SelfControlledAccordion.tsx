@@ -1,18 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 
 type AccordionPropsType = {
     titleValue: string
-    collapsed: boolean
 }
 
-function Accordion(props: AccordionPropsType) {
-    // console.log('SelfControlledAccordion rendering')
+function SelfControlledAccordion(props: AccordionPropsType) {
+    console.log('SelfControlledAccordion rendering')
+
+    // let test = ''
+
+    // if (test) {
+    //     console.log('remove')
+    //     console.log(test)
+    // }
+    // if (test === false) {
+    //     console.log('add')
+    //     console.log(test)
+    // }
+
+    let [test, setTest] = useState('')
+
+
+
+    const add = () => {
+        console.log('add')
+        let test = 'hello'
+        setTest(test)
+
+    }
+    const remove = () => {
+        console.log('remove')
+        let test = ''
+        setTest(test)
+    }
 
     return (
         <div>
             <AccordionTitle title={props.titleValue}/>
-            { !props.collapsed && <AccordionBody/>}
+            <button onClick={add}>toggle</button>
+            <button onClick={remove}>remove</button>
+            <p>{test && <AccordionBody/>}</p>
         </div>
     )
 
@@ -65,4 +93,4 @@ function AccordionBody() {
     )
 }
 
-export default Accordion
+export default SelfControlledAccordion
