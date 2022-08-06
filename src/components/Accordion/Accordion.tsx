@@ -7,7 +7,7 @@ type AccordionPropsType = {
 }
 
 function Accordion(props: AccordionPropsType) {
-    // console.log('SelfControlledAccordion rendering')
+    // console.log('MySelfControlledAccordion rendering')
 
     return (
         <div>
@@ -20,7 +20,7 @@ function Accordion(props: AccordionPropsType) {
 
 // function Accordion2(props: AccordionPropsType) {
 //
-//     console.log('SelfControlledAccordion rendering')
+//     console.log('MySelfControlledAccordion rendering')
 //     if (props.collapsed) {
 //         return (
 //             <div>

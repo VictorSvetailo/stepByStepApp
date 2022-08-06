@@ -5,20 +5,23 @@ type AccordionPropsType = {
     titleValue: string
 }
 
-function SelfControlledAccordion(props: AccordionPropsType) {
-    console.log('MySelfControlledAccordion rendering')
+function MySelfControlledAccordion(props: AccordionPropsType) {
+    // console.log('MySelfControlledAccordion rendering')
+
+
 
     let [collapsed, setCollapsed] = useState(false)
 
-    const onClickCollapsedHandler = () =>{
+
+
+    const onClickToggleHandler = () => {
         setCollapsed(!collapsed)
     }
-
 
     return (
         <div>
             <AccordionTitle title={props.titleValue}/>
-            <button onClick={onClickCollapsedHandler}>toggle</button>
+            <button onClick={onClickToggleHandler}>ToggleMy</button>
             <p>{collapsed && <AccordionBody/>}</p>
         </div>
     )
@@ -72,4 +75,4 @@ function AccordionBody() {
     )
 }
 
-export default SelfControlledAccordion
+export default MySelfControlledAccordion

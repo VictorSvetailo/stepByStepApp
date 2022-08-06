@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import styles from './OnOff.module.css'
+import styles from './OnOffMy.module.css'
 
 type PropsType = {
     ///on: boolean
 }
 
 
-export function OnOff(props: PropsType){
+export function OnOffMy(props: PropsType){
     // console.log('OnOffMy rendering')
 
          let [on, setOn] = useState(false) // hook with init value

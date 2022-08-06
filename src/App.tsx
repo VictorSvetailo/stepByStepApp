@@ -1,10 +1,12 @@
 import React, {MouseEvent} from 'react';
 import './App.module.css';
 import Accordion from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
 import {OnOff} from './components/onOff/OnOff';
 import styles from './App.module.css'
 import SelfControlledAccordion from './components/SelfControlledAccordion/SelfControlledAccordion';
+import MySelfControlledAccordion from './components/MySelfControlledAccordion/MySelfControlledAccordion';
+import {OnOffMy} from './components/OnOffMy/OnOffMy';
+import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
 
 
 
@@ -13,22 +15,24 @@ function App() {
     return (
         <div className={styles.wrapper}>
             <OnOff />
-            <OnOff />
-            <SelfControlledAccordion titleValue={'Menu 1'}/>
-            <SelfControlledAccordion titleValue={'Users 2'}/>
+            <br/>
+            <OnOffMy />
+            <SelfControlledAccordion titleValue={'Lesson Dmitriy'}/>
+            {/*<SelfControlledAccordion titleValue={'Users 2'}/>*/}
+            <MySelfControlledAccordion titleValue={'My homework'}/>
+            <UncontrolledRating/>
 
-
-            {/*<OnOff on={true}/>*/}
-            {/*<OnOff on={false}/>*/}
+            {/*<OnOffMy on={true}/>*/}
+            {/*<OnOffMy on={false}/>*/}
             {/*<PageTitle title={'This is APP component'}/>*/}
             {/*<PageTitle title={'My friends'}/>*/}
 
-            {/*<Rating value={0}/>*/}
-            {/*<Rating value={1}/>*/}
-            {/*<Rating value={2}/>*/}
-            {/*<Rating value={3}/>*/}
-            {/*<Rating value={4}/>*/}
-            {/*<Rating value={5}/>*/}
+            {/*<UncontrolledRating value={0}/>*/}
+            {/*<UncontrolledRating value={1}/>*/}
+            {/*<UncontrolledRating value={2}/>*/}
+            {/*<UncontrolledRating value={3}/>*/}
+            {/*<UncontrolledRating value={4}/>*/}
+            {/*<UncontrolledRating value={5}/>*/}
             {/*<PageTitle title={'How are you?'}/>*/}
         </div>
     ); 
