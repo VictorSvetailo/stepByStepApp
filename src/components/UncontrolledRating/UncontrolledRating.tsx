@@ -1,30 +1,30 @@
-import React, {useState} from 'react';
+import React, {useState, MouseEvent} from 'react';
 
 type RatingPropsType = {
     // value: number
 }
 
 export function UncontrolledRating(props: RatingPropsType) {
-    console.log('UncontrolledRating rendering')
+    console.log('Rating rendering')
 
     let [value, setValue] = useState(0)
 
 
-    const onClickStarHandler = (t: number)=>{
+    const onClickStarHandler = (t: number) => {
         setValue(value = t)
     }
 
 
     return (
         <div>
-            <Star selected={value > 0}/> <button onClick={()=>onClickStarHandler(1)}>1</button>
-            <Star selected={value > 1}/><button onClick={()=>onClickStarHandler(2)}>2</button>
-            <Star selected={value > 2}/><button onClick={()=>onClickStarHandler(3)}>3</button>
-            <Star selected={value > 3}/><button onClick={()=>onClickStarHandler(4)}>4</button>
-            <Star selected={value > 4}/><button onClick={()=>onClickStarHandler(5)}>5</button>
+            <Star selected={value > 0} setValue={()=>{setValue(1)}}/>
+            <Star selected={value > 1} setValue={()=>{setValue(2)}}/>
+            <Star selected={value > 2} setValue={()=>{setValue(3)}}/>
+            <Star selected={value > 3} setValue={()=>{setValue(4)}}/>
+            <Star selected={value > 4} setValue={()=>{setValue(5)}}/>
             <br/>
             <div>
-                <button onClick={()=>onClickStarHandler(0)}>remove</button>
+                <button onClick={() => onClickStarHandler(0)}>remove</button>
             </div>
         </div>
 
@@ -35,18 +35,21 @@ export function UncontrolledRating(props: RatingPropsType) {
 //     debugger
 //     return(
 //         <h5>{props.title}</h5>
-//     )
-// }
-
 type StarPropsType = {
     selected: boolean
+    setValue: ()=>void
 }
 
 function Star(props: StarPropsType) {
+    const onClickSetValueHandler = (t: MouseEvent<HTMLSpanElement>) => {
+        props.setValue()
+    }
     // console.log('Star rendering')
-    return(
-        <span>{props.selected ? <span><b>star</b></span> : <span>star </span>}</span>
-    )
+    // return props.selected ? <span><b>star</b></span> : <span>star </span>
+    return <span onClick={onClickSetValueHandler}>
+        {props.selected ? <b>star </b> : 'star '}
+    </span>
+
 
     // if (test) {
     //     return (

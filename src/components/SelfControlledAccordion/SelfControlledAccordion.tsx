@@ -17,8 +17,7 @@ function SelfControlledAccordion(props: AccordionPropsType) {
 
     return (
         <div>
-            <AccordionTitle title={props.titleValue}/>
-            <button onClick={onClickCollapsedHandler}>toggle</button>
+            <AccordionTitle title={props.titleValue} onClick={onClickCollapsedHandler}/>
             <p>{collapsed && <AccordionBody/>}</p>
         </div>
     )
@@ -48,13 +47,14 @@ function SelfControlledAccordion(props: AccordionPropsType) {
 
 type AccordionTitlePropsType = {
     title: string
+    onClick: ()=>void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     // console.log('AccordionTitle rendering')
     return (
         <div>
-            <h3>--- {props.title} ---</h3>
+            <h3 onClick={()=>{props.onClick()}}> --- {props.title} ---</h3>
         </div>
     )
 }
@@ -64,9 +64,9 @@ function AccordionBody() {
     return (
         <div>
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
+                <li>A</li>
+                <li>B</li>
+                <li>C</li>
             </ul>
         </div>
     )

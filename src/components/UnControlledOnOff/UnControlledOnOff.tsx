@@ -1,21 +1,22 @@
 import React, {useState} from 'react';
-import styles from './OnOff.module.css'
+import styles from './UnControlledOnOff.module.css'
 
 type PropsType = {
-    ///on: boolean
+    onChange: (on: boolean) => void
 }
 
 
-export function OnOff(props: PropsType){
-    // console.log('OnOffMy rendering')
+export function UnControlledOnOff(props: PropsType) {
+    let [on, setOn] = useState(false) // hook with init value
 
-         let [on, setOn] = useState(false) // hook with init value
-
-    // console.log('on:' + on)
-
-
-
-
+    const onClicked = () => {
+        setOn(true)
+        props.onChange(true)
+    }
+    const offClicked = () => {
+        setOn(false)
+        props.onChange(false)
+    }
 
 
     const onStyle = {
@@ -43,24 +44,13 @@ export function OnOff(props: PropsType){
         backgroundColor: on ? 'green' : 'red',
     }
 
-    // const onClickBtnOnHandler =()=>{
-    //     console.log('ON')
-    // }
-    // const onClickBtnOffHandler =()=>{
-    //     console.log('OFF')
-    // }
-
-    // let [green, setGreen] = useState('styles.btn_on')
-
-
     return (
         <div className={styles.block}>
 
-            <button onClick={()=>{setOn(true)}} style={onStyle}>On</button>
-            <button onClick={()=>{setOn(false)}} style={offStyle}>Off</button>
+            <button onClick={onClicked} style={onStyle}>On</button>
+            <button onClick={offClicked} style={offStyle}>Off</button>
 
             <div style={indicatorStyle}></div>
-            {/*<div className={styles.sensor_off}></div>*/}
         </div>
     );
 };

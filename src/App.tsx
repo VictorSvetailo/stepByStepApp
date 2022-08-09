@@ -1,38 +1,50 @@
-import React, {MouseEvent} from 'react';
+import React, {MouseEvent, useState} from 'react';
 import './App.module.css';
 import Accordion from "./components/Accordion/Accordion";
-import {OnOff} from './components/onOff/OnOff';
 import styles from './App.module.css'
+import {Rating, RatingValueType} from './components/Rating/Rating';
+import {UnControlledOnOff} from './components/UnControlledOnOff/UnControlledOnOff';
 import SelfControlledAccordion from './components/SelfControlledAccordion/SelfControlledAccordion';
-import MySelfControlledAccordion from './components/MySelfControlledAccordion/MySelfControlledAccordion';
-import {OnOffMy} from './components/OnOffMy/OnOffMy';
-import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
 
 
 
 function App() {
     // console.log('App rendering')
+
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(1)
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    let [switchOn, setSwitchOn] = useState<boolean>(false)
+
+
     return (
         <div className={styles.wrapper}>
-            <OnOff />
+
+            <Rating value={ratingValue} onClick={setRatingValue}/>
             <br/>
-            <OnOffMy />
-            <SelfControlledAccordion titleValue={'Lesson Dmitriy'}/>
+            {/*<Accordion titleValue={'Lesson Dmitriy'} collapsed={accordionCollapsed} onChange={()=>{setAccordionCollapsed(!accordionCollapsed)}}/>*/}
+
+            {/*<OnOffMy on={switchOn} onChange={setSwitchOn}/>*/}
+
+            <UnControlledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
+            {/*<SelfControlledAccordion titleValue={'Lesson Dmitriy'}/>*/}
+
             {/*<SelfControlledAccordion titleValue={'Users 2'}/>*/}
-            <MySelfControlledAccordion titleValue={'My homework'}/>
-            <UncontrolledRating/>
+            {/*<MySelfControlledAccordion titleValue={'My homework'}/>*/}
+            {/*<UncontrolledRating/>*/}
+
 
             {/*<OnOffMy on={true}/>*/}
             {/*<OnOffMy on={false}/>*/}
             {/*<PageTitle title={'This is APP component'}/>*/}
             {/*<PageTitle title={'My friends'}/>*/}
 
-            {/*<UncontrolledRating value={0}/>*/}
-            {/*<UncontrolledRating value={1}/>*/}
-            {/*<UncontrolledRating value={2}/>*/}
-            {/*<UncontrolledRating value={3}/>*/}
-            {/*<UncontrolledRating value={4}/>*/}
-            {/*<UncontrolledRating value={5}/>*/}
+            {/*<Rating value={0}/>*/}
+            {/*<Rating value={1}/>*/}
+            {/*<Rating value={2}/>*/}
+            {/*<Rating value={3}/>*/}
+            {/*<Rating value={4}/>*/}
+            {/*<Rating value={5}/>*/}
             {/*<PageTitle title={'How are you?'}/>*/}
         </div>
     ); 

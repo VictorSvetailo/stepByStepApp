@@ -2,20 +2,16 @@ import React, {useState} from 'react';
 import styles from './OnOffMy.module.css'
 
 type PropsType = {
-    ///on: boolean
+    on: boolean
+    onChange: (on: boolean) => void
 }
 
 
-export function OnOffMy(props: PropsType){
+export function OnOffMy(props: PropsType) {
     // console.log('OnOffMy rendering')
 
-         let [on, setOn] = useState(false) // hook with init value
 
-    // console.log('on:' + on)
-
-
-
-
+    console.log('on:' + props.on)
 
 
     const onStyle = {
@@ -23,7 +19,7 @@ export function OnOffMy(props: PropsType){
         height: '20px',
         borderRadius: '10px',
         border: '1px solid black',
-        backgroundColor: on ? 'green' : 'white',
+        backgroundColor: props.on ? 'green' : 'white',
         color: '#333',
     }
     const offStyle = {
@@ -31,7 +27,7 @@ export function OnOffMy(props: PropsType){
         height: '20px',
         borderRadius: '10px',
         border: '1px solid black',
-        backgroundColor: on ? 'white' : 'red',
+        backgroundColor: props.on ? 'white' : 'red',
         color: '#333',
         fontWeight: 700,
     }
@@ -40,7 +36,7 @@ export function OnOffMy(props: PropsType){
         height: '20px',
         borderRadius: '50%',
         border: '1px solid black',
-        backgroundColor: on ? 'green' : 'red',
+        backgroundColor: props.on ? 'green' : 'red',
     }
 
     // const onClickBtnOnHandler =()=>{
@@ -56,8 +52,14 @@ export function OnOffMy(props: PropsType){
     return (
         <div className={styles.block}>
 
-            <button onClick={()=>{setOn(true)}} style={onStyle}>On</button>
-            <button onClick={()=>{setOn(false)}} style={offStyle}>Off</button>
+            <button onClick={() => {
+                props.onChange(true)
+            }} style={onStyle}>On
+            </button>
+            <button onClick={() => {
+                props.onChange(false)
+            }} style={offStyle}>Off
+            </button>
 
             <div style={indicatorStyle}></div>
             {/*<div className={styles.sensor_off}></div>*/}

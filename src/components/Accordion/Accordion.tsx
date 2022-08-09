@@ -1,53 +1,33 @@
-import React from 'react';
+import React, {MouseEvent} from 'react';
 
 
 type AccordionPropsType = {
     titleValue: string
     collapsed: boolean
+    onChange: ()=>void
 }
 
 function Accordion(props: AccordionPropsType) {
     // console.log('MySelfControlledAccordion rendering')
-
     return (
         <div>
-            <AccordionTitle title={props.titleValue}/>
-            { !props.collapsed && <AccordionBody/>}
+            <AccordionTitle onChange={props.onChange} title={props.titleValue}/>
+            {!props.collapsed && <AccordionBody/>}
         </div>
     )
 
 }
 
-// function Accordion2(props: AccordionPropsType) {
-//
-//     console.log('MySelfControlledAccordion rendering')
-//     if (props.collapsed) {
-//         return (
-//             <div>
-//                 <AccordionTitle title={props.titleValue}/>
-//             </div>
-//         )
-//     }else {
-//         return (
-//             <div>
-//                 <AccordionTitle title={props.titleValue}/>
-//                 <AccordionBody/>
-//             </div>
-//         )
-//     }
-//
-// }
-
 
 type AccordionTitlePropsType = {
     title: string
+    onChange: ()=>void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-    // console.log('AccordionTitle rendering')
     return (
         <div>
-            <h3>--- {props.title} ---</h3>
+            <h3 onClick={props.onChange}>--- {props.title} ---</h3>
         </div>
     )
 }
@@ -57,9 +37,9 @@ function AccordionBody() {
     return (
         <div>
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
+                <li>A</li>
+                <li>B</li>
+                <li>C</li>
             </ul>
         </div>
     )
