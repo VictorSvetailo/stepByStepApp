@@ -5,6 +5,7 @@ import styles from './App.module.css'
 import {Rating, RatingValueType} from './components/Rating/Rating';
 import {UnControlledOnOff} from './components/UnControlledOnOff/UnControlledOnOff';
 import SelfControlledAccordion from './components/SelfControlledAccordion/SelfControlledAccordion';
+import {InputTest} from './components/Input/InputTest';
 
 
 
@@ -22,6 +23,7 @@ function App() {
 
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <br/>
+            <InputTest/>
             {/*<Accordion titleValue={'Lesson Dmitriy'} collapsed={accordionCollapsed} onChange={()=>{setAccordionCollapsed(!accordionCollapsed)}}/>*/}
 
             {/*<OnOffMy on={switchOn} onChange={setSwitchOn}/>*/}
