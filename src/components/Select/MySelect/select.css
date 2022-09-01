@@ -1,0 +1,13 @@
+.title_actual{
+    font-weight: 700;
+}
+
+.title_actual:hover{
+    color: hotpink;
+    transition: 0.3s;
+}
+
+input {
+    color: transparent;
+    text-shadow: 0 0 0 black;
+}

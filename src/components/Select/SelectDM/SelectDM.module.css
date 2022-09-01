@@ -1,0 +1,32 @@
+.select{
+    border: 2px solid black;
+    display: inline-block;
+}
+
+.items{
+
+    position: absolute;
+    border: 2px solid red;
+    color: red;
+}
+
+.actual{
+
+}
+
+/*.item:hover{*/
+/*    background-color: blue;*/
+/*    color: white;*/
+/*}*/
+
+
+.item.selected{
+    background-color: blue;
+    color: white;
+}
+
+
+/*.select.active .items {*/
+/*    display: block;*/
+/*}*/
+
