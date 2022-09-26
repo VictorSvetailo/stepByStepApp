@@ -1,18 +1,25 @@
 import React, {MouseEvent} from 'react';
+import {StateType} from './Reducer';
+
 
 
 type AccordionPropsType = {
     titleValue: string
-    collapsed: boolean
+    state: any
     onChange: ()=>void
 }
+
+
+
+
+
 
 function Accordion(props: AccordionPropsType) {
     // console.log('MySelfControlledAccordion rendering')
     return (
         <div>
             <AccordionTitle onChange={props.onChange} title={props.titleValue}/>
-            {!props.collapsed && <AccordionBody/>}
+            {props.state.collapsed && <AccordionBody/>}
         </div>
     )
 

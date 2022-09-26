@@ -1,19 +1,21 @@
-import React, {MouseEvent, useState} from 'react';
+import React, {useReducer, useState} from 'react';
 import './App.module.css';
 import Accordion from './components/Accordion/Accordion';
 import styles from './App.module.css'
-import {Rating, RatingValueType} from './components/Rating/Rating';
-import {UnControlledOnOff} from './components/UnControlledOnOff/UnControlledOnOff';
-import SelfControlledAccordion from './components/SelfControlledAccordion/SelfControlledAccordion';
-import {InputTest} from './components/Input/InputTest';
+import {RatingValueType} from './components/Rating/Rating';
 import {MySelect, SelectDataType} from './components/Select/MySelect/MySelect';
 import {v1} from 'uuid';
-import {ItemsDMType, SelectDM, SelectItemsDMType} from './components/Select/SelectDM/SelectDM';
+import {ItemsDMType, SelectDM} from './components/Select/SelectDM/SelectDM';
+import {reducer, TOGGLE_COLLAPSED} from './components/Accordion/Reducer';
 
 
 function App() {
+    console.log('Render App')
 
+    // let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
 
+    let [state, dispatch] = useReducer(reducer, {collapsed: false})
+    console.log(state)
 
 
     const selectData: Array<SelectDataType> = [
@@ -28,7 +30,6 @@ function App() {
     const onChangeSelect = (title: string) => {
         setActualValueTitle(title)
     }
-
 
 
     const [valueNew, setValueNew] = useState(1)
@@ -49,7 +50,7 @@ function App() {
 
 
     let [ratingValue, setRatingValue] = useState<RatingValueType>(1)
-    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+
     let [switchOn, setSwitchOn] = useState<boolean>(false)
 
 
@@ -67,13 +68,18 @@ function App() {
     return (
         <div className={styles.wrapper}>
 
-            <Rating value={ratingValue} onClick={setRatingValue}/>
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
             <br/>
 
             <MySelect onChangeSelect={onChangeSelect} actualValueTitle={actualValueTitle} selectData={selectData}/>
             <SelectDM valueNew={valueNew} onChange={onChange} itemsDM={itemsDM}/>
             {/*<InputTest/>*/}
             {/*<Accordion titleValue={'Lesson Dmitriy'} collapsed={accordionCollapsed} onChange={()=>{setAccordionCollapsed(!accordionCollapsed)}}/>*/}
+            <Accordion titleValue={'Lesson Dmitriy'}
+                       state={state}
+                       onChange={() => {
+                           dispatch({type: TOGGLE_COLLAPSED})
+                       }}/>
 
             {/*<OnOffMy on={switchOn} onChange={setSwitchOn}/>*/}
 

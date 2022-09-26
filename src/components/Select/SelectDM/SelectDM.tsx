@@ -13,6 +13,9 @@ export type SelectItemsDMType = {
     valueNew: number
 }
 
+
+
+
 export const SelectDM: FC<SelectItemsDMType> = (props) => {
     const [active, setActive] = useState(false)
 
