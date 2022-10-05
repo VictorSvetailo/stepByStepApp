@@ -7,9 +7,11 @@ import {MySelect, SelectDataType} from './components/Select/MySelect/MySelect';
 import {v1} from 'uuid';
 import {ItemsDMType, SelectDM} from './components/Select/SelectDM/SelectDM';
 import {reducer, TOGGLE_COLLAPSED} from './components/Accordion/Reducer';
+import {UseMemoTest} from './components/UseMemo/UseMemo';
 
 
 function App() {
+
     console.log('Render App')
 
     // let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
@@ -66,8 +68,9 @@ function App() {
 
 
     return (
-        <div className={styles.wrapper}>
 
+        <div className={styles.wrapper}>
+            <UseMemoTest/>
             {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
             <br/>
 
