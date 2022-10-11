@@ -46,7 +46,7 @@ export function OnOffMy(props: PropsType) {
     //     console.log('OFF')
     // }
 
-    // let [green, setGreen] = useState('styles.btn_on')
+    // let [green, setGreen] = UseState('styles.btn_on')
 
 
     return (

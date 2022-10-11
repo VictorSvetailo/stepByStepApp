@@ -10,7 +10,7 @@ type RatingPropsType = {
 export function Rating(props: RatingPropsType) {
     console.log('Rating rendering')
 
-    // let [value, setValue] = useState(0)
+    // let [value, setValue] = UseState(0)
 
 
     // const onClickStarHandler = (t: number) => {
