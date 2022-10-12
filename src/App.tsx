@@ -8,9 +8,11 @@ import {v1} from 'uuid';
 import {ItemsDMType, SelectDM} from './components/Select/SelectDM/SelectDM';
 import {reducer, TOGGLE_COLLAPSED} from './components/Accordion/Reducer';
 import UseState from './components/UseState/UseState';
+import {WatchDial} from './components/Clock/WatchDial/WatchDial';
 
 
 function App() {
+
 
     console.log('Render App')
 
@@ -69,7 +71,10 @@ function App() {
 
     return (
 
+
+
         <div className={styles.wrapper}>
+            <hr/>
             <UseState/>
             <hr/>
             <br/>

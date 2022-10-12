@@ -1,0 +1,39 @@
+.clockTeacher {
+    width: 120px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    margin: 5px;
+}
+.clockTeacher .digital_clock {
+    padding: 10px;
+}
+.clockTeacher .analog_clock {
+    width: 100px;
+    height: 100px;
+    border: solid 1px #000;
+    border-radius: 50%;
+    position: relative;
+    background: #fff;
+}
+.clockTeacher .analog_clock .dial {
+    position: absolute;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    transform-origin: bottom left;
+}
+.clockTeacher .analog_clock .dial.seconds {
+    border-left: solid 1px green;
+}
+.clockTeacher .analog_clock .dial.minutes {
+    border-left: solid 1px #cc0000;
+}
+.clockTeacher .analog_clock .dial.hours {
+    width: 35px;
+    height: 35px;
+    top: 15px;
+    border-left: solid 2px #000;
+}
